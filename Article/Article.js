@@ -112,3 +112,50 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
+// Article Wrapper
+const articles = document.querySelector(".articles");
+
+// Component Creator
+function newComponents (obj) {
+  let article = document.createElement("div");
+  article.classList.add("article");
+
+  let h2 = document.createElement("h2");
+  h2.textContent = obj.title;
+
+  let date = document.createElement("p");
+  date.classList.add("date");
+  date.textContent = obj.date;
+
+  let p1 = document.createElement("p");
+  p1.textContent = obj.firstParagraph;
+
+  let p2 = document.createElement("p");
+  p2.textContent = obj.secondParagraph;
+
+  let p3 = document.createElement("p");
+  p3.textContent =obj.thirdParagraph;
+
+  let span = document.createElement("span");
+  span.classList.add("expandButton");
+  span.textContent = "Expand";
+  span.addEventListener("click", event => {
+  article.classList.toggle('article-open');
+  });
+
+  // Appending New Component to Article
+
+  article.appendChild(h2);
+  article.appendChild(date);
+  article.appendChild(p1);
+  article.appendChild(p2);
+  article.appendChild(p3);
+  article.appendChild(span);
+  console.log(article);
+  return article;
+}
+
+// New Article Array
+data.map(data =>{
+  return articles.appendChild(newComponents(data));
+});
