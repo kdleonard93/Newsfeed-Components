@@ -65,6 +65,7 @@ function menus(items) {
   ul.appendChild(techTrends);
   ul.appendChild(music);
   ul.appendChild(logout);
+  menu.appendChild(ul);
   return menu;
 }
 
@@ -73,7 +74,7 @@ let newMenu = menus(menuItems);
 let menuButton = document.querySelector(".menu-button");
 
 menuButton.addEventListener("click", event => {
-  newMenu.classList.toggle("menu-open");
+  newMenu.classList.toggle("menu--open");
 });
 
 const header = document.querySelector(".header");
