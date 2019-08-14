@@ -151,7 +151,6 @@ function newComponents (obj) {
   article.appendChild(p2);
   article.appendChild(p3);
   article.appendChild(span);
-  console.log(article);
   return article;
 }
 

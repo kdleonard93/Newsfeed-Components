@@ -1,12 +1,12 @@
 /* This is the data we will be using, study it but don't change anything, yet. */
 
 let menuItems = [
-  'Students',
-  'Faculty',
+  "Students",
+  "Faculty",
   "What's New",
-  'Tech Trends',
-  'Music',
-  'Log Out'
+  "Tech Trends",
+  "Music",
+  "Log Out"
 ];
 
 /* 
@@ -33,3 +33,48 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+
+function menus(items) {
+  let menu = document.createElement("div");
+  menu.classList.add("menu");
+
+  let ul = document.createElement("ul");
+
+  let students = document.createElement("li");
+  students.textContent = menuItems[0];
+
+  let faculty = document.createElement("li");
+  faculty.textContent = menuItems[1];
+
+  let whatsNew = document.createElement("li");
+  whatsNew.textContent = menuItems[2];
+
+  let techTrends = document.createElement("li");
+  techTrends.textContent = menuItems[3];
+
+  let music = document.createElement("li");
+  music.textContent = menuItems[4];
+
+  let logout = document.createElement("li");
+  logout.textContent = menuItems[5];
+
+  // Adding items to the ul
+  ul.appendChild(students);
+  ul.appendChild(faculty);
+  ul.appendChild(whatsNew);
+  ul.appendChild(techTrends);
+  ul.appendChild(music);
+  ul.appendChild(logout);
+  return menu;
+}
+
+let newMenu = menus(menuItems);
+
+let menuButton = document.querySelector(".menu-button");
+
+menuButton.addEventListener("click", event => {
+  newMenu.classList.toggle("menu-open");
+});
+
+const header = document.querySelector(".header");
+header.prepend(newMenu);
